@@ -1,0 +1,40 @@
+@for (player of game.players; track player) {
+<app-player
+    [ngStyle]="{'position': 'absolute', 'top': $index * 150 + 150 + 'px', 'right': '0', 'background-color': player.backgroundColor}"
+    [playerActive]="$index == game.currentPlayer"
+    [name]="player.name" 
+    [profileImg]="player.profileImg">
+</app-player>
+
+
+}
+
+<div class="playground">
+
+    <div class="card-stack">
+        @for (card of [1, 2, 3, 4, 5]; track card; let i = $index ) {
+        <img [ngStyle]="{'right': i * 5 + 'px'}" src="assets/img/cards/card_cover.png" alt="">
+
+        }
+        <img (click)="takeCard()" [ngStyle]="{'right': 5 * 5 + 'px'}" [ngClass]="'top-card'"
+            src="assets/img/cards/card_cover.png" alt="">
+        @for (card of game.playedCards; track card) {
+        <img [ngStyle]="{'right': 5 * 5 + 'px'}" [ngClass]="'played-card'" src="assets/img/cards/{{ card }}.png" alt="">
+        }
+        @if (takeCardAnimation) {
+
+        <img (click)="takeCard()" [ngStyle]="{'right': 5 * 5 + 'px'}" [ngClass]="'take-card'"
+            src="assets/img/cards/{{ currentCard }}.png" alt="">
+        }
+
+    </div>
+
+    
+
+    <button class="btn-add" mat-fab (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+    </button>
+
+    <app-game-info [card]="currentCard" class="pin-bottom"></app-game-info>
+</div>
+

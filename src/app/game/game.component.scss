@@ -1,0 +1,67 @@
+.playground {
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background-image: url('/assets/img/wood-bg.jpg');
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+        position: absolute;
+        width: 120px;
+    }
+}
+
+.card-stack {
+    position: relative;
+}
+
+.top-card {
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.1);
+        transition: all 125ms ease-in-out;
+    }
+}
+
+.take-card {
+    animation: takeCardAnimation 1s ease-in-out forwards;
+}
+
+.played-card {
+    transform: translateX(280px) translateY(-480px) scale(1.5) rotate(10deg);
+}
+
+@keyframes takeCardAnimation {
+    0% {
+        transform: translateX(0) translateY(0) scale(1.1);
+    }
+
+    25% {
+        transform: translateX(0) translateY(0) scale(1.5);
+    }
+
+    50% {
+        transform: translateX(0) translateY(0) scale(1.5);
+    }
+
+    100% {
+        transform: translateX(280px) translateY(-480px) scale(1.5) rotate(10deg);
+    }
+}
+
+.btn-add {
+    position: absolute;
+    right: 32px;
+    bottom: 32px;
+}
+
+.pin-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 150px;
+    right: 150px;
+}

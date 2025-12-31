@@ -1,0 +1,23 @@
+:host {
+    background-color: #4C5AA5;
+    border-radius: 50px 0 0 50px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+    width: 300px;
+
+    img {
+        width: 100px;
+    }
+
+    span {
+        margin-left: 16px;
+        font-size: 32px;
+    }
+}
+
+.player-active {
+    width: 360px;
+}
